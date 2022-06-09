@@ -1,16 +1,24 @@
 # tiktok_home_ui
 
-A new Flutter project.
+It's just a Tiktok home screen Ui with pageView bilder...
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+- Create tiktok app's feed screen. 
+https://www.techadvisor.com/cmsdata/features/3698642/how-to-use-tiktok-step1.png
 
-A few resources to get you started if this is your first Flutter project:
+Steps: 
+Break down the ui components into the following: 
+1. right side buttons 
+2. username and captions texts 
+3. following and for you
+4. backgroud image or video 
+5. Assemble the above sections in a widget. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2. https://assets.materialup.com/uploads/a8ba244e-e48f-4cfa-ad8f-d129eac9245e/preview.jpg 
+Create the message count icon.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Final Result
+
+![](https://i.ibb.co/k5Pzt8z/Screenshot-1654764683.png)
