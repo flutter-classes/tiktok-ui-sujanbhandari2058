@@ -6,6 +6,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:tiktok_home_ui/jsonConvaterModel/hits.dart';
+import 'package:tiktok_home_ui/widget/tiktokIcons.dart';
 
 class centerWidget extends StatelessWidget {
   centerWidget({Key? key, required this.data}) : super(key: key);
@@ -14,7 +15,13 @@ class centerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var url = data.userImageURL;
+    if (data.userImageURL.isEmpty) {
+      url =
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png';
+    }
     return Container(
+      padding: EdgeInsets.all(10),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -83,7 +90,7 @@ class centerWidget extends StatelessWidget {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image.network(
-                        data.userImageURL,
+                        url,
                         height: 50,
                         width: 50,
                       )),
@@ -112,10 +119,11 @@ class centerWidget extends StatelessWidget {
                   height: 15,
                 ),
                 Icon(
-                  FontAwesome.heart,
+                  TikTokIcons.heart,
                   color: Colors.white,
-                  size: 35,
+                  size: 30,
                 ),
+                SizedBox(height: 5),
                 Text(
                   '${data.views}',
                   style: TextStyle(color: Colors.white),
@@ -124,13 +132,14 @@ class centerWidget extends StatelessWidget {
                 //
 
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Icon(
-                  Entypo.message,
+                  TikTokIcons.chat_bubble,
                   color: Colors.white,
-                  size: 40,
+                  size: 30,
                 ),
+                SizedBox(height: 5),
                 Text(
                   '${data.downloads}',
                   style: TextStyle(color: Colors.white),
@@ -144,6 +153,7 @@ class centerWidget extends StatelessWidget {
                   color: Colors.white,
                   size: 35,
                 ),
+                SizedBox(height: 5),
                 Text(
                   '${data.likes}',
                   style: TextStyle(color: Colors.white),
@@ -155,12 +165,13 @@ class centerWidget extends StatelessWidget {
                   height: 15,
                 ),
                 Icon(
-                  Fontisto.share_a,
+                  TikTokIcons.reply,
                   color: Colors.white,
-                  size: 30,
+                  size: 25,
                 ),
+                SizedBox(height: 5),
                 Text(
-                  '${data.comments}',
+                  'Share',
                   style: TextStyle(color: Colors.white),
                 ), //
                 //
