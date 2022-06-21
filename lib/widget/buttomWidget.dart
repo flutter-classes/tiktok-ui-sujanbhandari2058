@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'tiktokIcons.dart';
 
 class buttomWidget extends StatelessWidget {
   const buttomWidget({Key? key}) : super(key: key);
@@ -17,8 +18,9 @@ class buttomWidget extends StatelessWidget {
           Column(
             children: [
               Icon(
-                Icons.home,
+                TikTokIcons.home,
                 color: Colors.white,
+                size: 22,
               ),
               SizedBox(
                 height: 3,
@@ -26,6 +28,7 @@ class buttomWidget extends StatelessWidget {
               Text(
                 'Home',
                 style: TextStyle(
+                  fontSize: 11,
                   color: Colors.white,
                 ),
               )
@@ -34,15 +37,19 @@ class buttomWidget extends StatelessWidget {
           Column(
             children: [
               Icon(
-                Feather.users,
+                TikTokIcons.search,
+                size: 22,
                 color: Colors.white,
               ),
               SizedBox(
                 height: 3,
               ),
               Text(
-                'Friends',
-                style: TextStyle(color: Colors.white),
+                'Discover',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 11,
+                ),
               )
             ],
           ),
@@ -84,7 +91,8 @@ class buttomWidget extends StatelessWidget {
           Column(
             children: [
               Icon(
-                Feather.message_square,
+                TikTokIcons.messages,
+                size: 22,
                 color: Colors.white,
               ),
               SizedBox(
@@ -92,14 +100,15 @@ class buttomWidget extends StatelessWidget {
               ),
               Text(
                 'Inbox',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(fontSize: 11, color: Colors.white),
               )
             ],
           ),
           Column(
             children: [
               Icon(
-                Ionicons.person_outline,
+                TikTokIcons.profile,
+                size: 22,
                 color: Colors.white,
               ),
               SizedBox(
@@ -107,7 +116,7 @@ class buttomWidget extends StatelessWidget {
               ),
               Text(
                 'Profile',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(fontSize: 11, color: Colors.white),
               )
             ],
           )

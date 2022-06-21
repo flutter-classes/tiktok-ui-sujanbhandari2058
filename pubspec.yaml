@@ -35,9 +35,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_vector_icons: ^1.0.0
   cached_network_image: ^3.2.1
-  flutter_statusbarcolor_ns: ^0.4.0
   http: ^0.13.4
   video_player: ^2.4.5
+  line_icons:
 
 dev_dependencies:
   flutter_test:
@@ -76,10 +76,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: TikTokIcons
+      fonts:
+        - asset: assets/fonts/TikTokIcons.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

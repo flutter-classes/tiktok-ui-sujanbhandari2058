@@ -14,7 +14,7 @@ class pageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(DataRes[1].videos.url);
+    // print(DataRes[1].videos.url);
     var img = [
       'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg',
       'https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg',
