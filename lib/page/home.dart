@@ -22,7 +22,7 @@ class _homeState extends State<home> {
   List<hits> DataRes = [];
 
   String api =
-      'https://pixabay.com/api/videos/?key=28109076-e751a6f7bf9e3a446a73d31ac&q=yellow+flowers&pretty=true';
+      'https://pixabay.com/api/videos/?key=28109076-e751a6f7bf9e3a446a73d31ac&q=flowers&pretty=true';
   @override
   void initState() {
     getData();
