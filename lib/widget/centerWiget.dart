@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:tiktok_home_ui/jsonConvaterModel/hits.dart';
 
 class centerWidget extends StatelessWidget {
-  const centerWidget({Key? key}) : super(key: key);
+  centerWidget({Key? key, required this.data}) : super(key: key);
+
+  hits data;
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +29,14 @@ class centerWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '@suzanchhetri',
+                    "@" + data.user,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 12),
                   Text(
                     '#444 How we Git Down',
                     style: TextStyle(
@@ -46,14 +49,14 @@ class centerWidget extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    '#exitfour44 #thegitup',
+                    '#' + data.tags,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 15,
-                        fontWeight: FontWeight.w600),
+                        fontWeight: FontWeight.w400),
                   )
                 ],
               ),
@@ -66,7 +69,7 @@ class centerWidget extends StatelessWidget {
             // color: Colors.black,
             child: Column(
               children: [
-                Stack(children: [
+                Stack(alignment: AlignmentDirectional.center, children: [
                   Container(
                     height: 70,
                     width: 70,
@@ -80,16 +83,16 @@ class centerWidget extends StatelessWidget {
                   ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Image.network(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkq96a4bkVzlgF-FiQdyx7KOPb-kk71ONjXteyLZWHUUVrwrkT8xxuXAR2uHYUt5YZ33o&usqp=CAU',
+                        data.userImageURL,
                         height: 50,
                         width: 50,
                       )),
                   Positioned(
-                    bottom: 8,
-                    left: 19,
+                    bottom: 1,
+                    left: 20,
                     child: Container(
-                      height: 18,
-                      width: 18,
+                      height: 20,
+                      width: 20,
                       decoration: BoxDecoration(
                           color: Colors.red, shape: BoxShape.circle),
                       child: Icon(
@@ -114,7 +117,7 @@ class centerWidget extends StatelessWidget {
                   size: 35,
                 ),
                 Text(
-                  '3487',
+                  '${data.views}',
                   style: TextStyle(color: Colors.white),
                 ), //
                 //
@@ -129,7 +132,7 @@ class centerWidget extends StatelessWidget {
                   size: 40,
                 ),
                 Text(
-                  '3487',
+                  '${data.downloads}',
                   style: TextStyle(color: Colors.white),
                 ),
 
@@ -142,7 +145,7 @@ class centerWidget extends StatelessWidget {
                   size: 35,
                 ),
                 Text(
-                  '41',
+                  '${data.likes}',
                   style: TextStyle(color: Colors.white),
                 ), //
                 //
@@ -157,7 +160,7 @@ class centerWidget extends StatelessWidget {
                   size: 30,
                 ),
                 Text(
-                  '8',
+                  '${data.comments}',
                   style: TextStyle(color: Colors.white),
                 ), //
                 //

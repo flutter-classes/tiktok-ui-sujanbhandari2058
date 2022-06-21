@@ -3,13 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:tiktok_home_ui/jsonConvaterModel/hits.dart';
 import 'package:tiktok_home_ui/widget/centerWiget.dart';
+import 'package:tiktok_home_ui/widget/video.dart';
 
 class pageView extends StatelessWidget {
-  const pageView({Key? key}) : super(key: key);
+  pageView({Key? key, required this.DataRes}) : super(key: key);
+
+  List<hits> DataRes;
 
   @override
   Widget build(BuildContext context) {
+    print(DataRes[1].videos.url);
     var img = [
       'https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg',
       'https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg',
@@ -26,23 +31,29 @@ class pageView extends StatelessWidget {
     ];
 
     return PageView.builder(
-        itemCount: img.length,
+        itemCount: DataRes.length,
         scrollDirection: Axis.vertical,
         itemBuilder: ((context, index) {
+          var item = DataRes[index];
+          String url = DataRes[index].videos.url;
+
           return Container(
             alignment: Alignment.bottomCenter,
             child: Stack(
               children: [
-                Expanded(
-                  child: CachedNetworkImage(
-                    imageUrl: img[index],
-                    fit: BoxFit.cover,
-                    height: double.infinity,
-                  ),
-                ),
+                Expanded(child: Container(child: VideoApp(uri: url))
+                    //
+                    // CachedNetworkImage(
+                    //   imageUrl: img[index],
+                    //   fit: BoxFit.cover,
+                    //   height: double.infinity,
+                    // ),
+                    ),
                 Container(
                   alignment: Alignment.bottomLeft,
-                  child: centerWidget(),
+                  child: centerWidget(
+                    data: item,
+                  ),
                 ),
               ],
             ),
