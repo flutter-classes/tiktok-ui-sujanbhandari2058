@@ -1,16 +1,23 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:tiktok_home_ui/jsonConvaterModel/hits.dart';
 import 'package:tiktok_home_ui/widget/centerWiget.dart';
 import 'package:tiktok_home_ui/widget/video.dart';
+import 'package:http/http.dart' as api;
 
-class pageView extends StatelessWidget {
+class pageView extends StatefulWidget {
   pageView({Key? key, required this.DataRes}) : super(key: key);
 
   List<hits> DataRes;
+  var com = 1;
+
+  @override
+  State<pageView> createState() => pageViewState();
+}
+
+class pageViewState extends State<pageView> {
+  var page = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +38,37 @@ class pageView extends StatelessWidget {
     ];
 
     return PageView.builder(
-        itemCount: DataRes.length,
+        itemCount: widget.DataRes.length,
         scrollDirection: Axis.vertical,
+        onPageChanged: (int) {
+          print('page changed $int');
+
+          if (widget.DataRes.length - 5 < int) {
+            var nextPage =
+                'https://pixabay.com/api/videos/?key=28109076-e751a6f7bf9e3a446a73d31ac&q=flowers&pretty=true&page=${page}';
+            var nextPageUri = Uri.parse(nextPage);
+
+            api.get(nextPageUri).then((res) {
+              Map Decoded = jsonDecode(res.body);
+
+              List hitsMap = Decoded['hits'];
+
+              List<hits> _data = hitsMap.map<hits>((item) {
+                final convartedList = hits.jsonToDart(item);
+                return convartedList;
+              }).toList();
+
+              widget.DataRes.addAll(_data);
+              print(widget.DataRes.length);
+              page++;
+              setState(() {});
+              print('page count $page total ${widget.DataRes.length}');
+            });
+          }
+        },
         itemBuilder: ((context, index) {
-          var item = DataRes[index];
-          String url = DataRes[index].videos.url;
+          var item = widget.DataRes[index];
+          String url = widget.DataRes[index].videos.url;
 
           return Container(
             alignment: Alignment.bottomCenter,

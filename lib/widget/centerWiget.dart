@@ -16,6 +16,15 @@ class centerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var url = data.userImageURL;
+    reactConvater() {
+      var react = data.views;
+
+      if (react >= 10000 && react < 1000000) {
+        double K = react / 1000;
+        var value = ' $K K';
+      }
+    }
+
     if (data.userImageURL.isEmpty) {
       url =
           'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png';

@@ -104,21 +104,26 @@ class buttomWidget extends StatelessWidget {
               )
             ],
           ),
-          Column(
-            children: [
-              Icon(
-                TikTokIcons.profile,
-                size: 22,
-                color: Colors.white,
-              ),
-              SizedBox(
-                height: 3,
-              ),
-              Text(
-                'Profile',
-                style: TextStyle(fontSize: 11, color: Colors.white),
-              )
-            ],
+          GestureDetector(
+            onTap: () {
+              
+            },
+            child: Column(
+              children: [
+                Icon(
+                  TikTokIcons.profile,
+                  size: 22,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  height: 3,
+                ),
+                Text(
+                  'Profile',
+                  style: TextStyle(fontSize: 11, color: Colors.white),
+                )
+              ],
+            ),
           )
         ],
       ),
